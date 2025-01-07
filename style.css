@@ -1,0 +1,106 @@
+/* Variables de la paleta de colores */
+:root {
+    --color-principal: #FFD590;
+    --color-secundario: #E98010;
+    --color-terciario: #0E0D0D;
+    --color-claro: #FFE8C2;
+    --color-destacado: #F4B067;
+    --color-fondo: #ECE4DB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--color-terciario);
+    background: url('portada6.jpg') no-repeat center center/cover;
+    /* background-color: #0E0D0D; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-secundario);
+    transform: scale(1.1);
+}
+
+nav .logo {
+    max-width: 150px; /* Ancho máximo del logo */
+    max-height: 150px; /* Alto máximo del logo */
+    overflow: hidden; /* Evita que el contenido se salga */
+}
+
+nav .logo img {
+   /* width: auto; /* Ajusta el ancho automáticamente */
+   /* height: 100%; /* Mantiene el alto máximo */
+    object-fit:contain; /* Asegura que la imagen se ajuste sin deformarse */
+    transition: transform 0.3s, filter 0.3s;
+}
+
+nav .logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--color-secundario));
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--color-secundario);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.title:hover {
+    transform: scale(1.1);
+    color: var(--color-destacado);
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-claro);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.subtitle:hover{
+    transform: scale(1.1);
+    color: var(--color-destacado);
+}
+
+/* Animación para el logo central */
+.content img {
+    height: auto;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.content img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--color-secundario));
+}
+
