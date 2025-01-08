@@ -81,7 +81,7 @@ nav .logo img:hover {
 
 /* Título principal */
 .title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -96,7 +96,7 @@ nav .logo img:hover {
 
 /* Subtítulo */
 .subtitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-size: 20px;
     font-weight: 300;
     color: var(--color-claro);
@@ -122,6 +122,16 @@ nav .logo img:hover {
 /* ======================== */
 /* Estilos para la página de precios */
 /* ======================== */
+
+body#body_precios{
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1A1A1A; /* Color oscuro del fondo */
+    color: #fff;
+}
+
 
 .pricing-container {
     text-align: center;
@@ -208,3 +218,49 @@ nav .logo img:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más fuerte en hover */
   }
 
+
+/* ======================== */
+/* Estilos para la página de Contacto */
+/* ======================== */
+
+body#body_contacto{
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-terciario);
+
+}
+
+.contact-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--color-claro);
+  border: 2px solid var(--color-destacado);
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 50px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h1 {
+  color: var(--color-principal);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.calendly-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--color-fondo);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.calendly-inline-widget {
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+}
