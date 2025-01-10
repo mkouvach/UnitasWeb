@@ -1,0 +1,30 @@
+.mybgcolor{
+    background-color:#0E0D0D;
+}
+
+:root {
+    --color-principal: #FFD590;
+    --color-secundario: #E98010;
+    --color-terciario: #0E0D0D;
+    --color-claro: #FFE8C2;
+    --color-destacado: #F4B067;
+    --color-fondo: #ECE4DB;
+}
+
+/* ======================== */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--color-terciario);
+    /* background: url('portada6.jpg') no-repeat center center/cover; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:#0E0D0D;
+}
+
+.height100 {
+    height: 100vh; /* Full viewport height */
+}
+.height80 {
+    height: 80vh; /* Full viewport height */
+}
