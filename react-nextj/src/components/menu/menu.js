@@ -46,7 +46,7 @@ const Menu = ()=> {
                   <div className="navbar-nav col-2 text-center">
                     <Link href="/servicios" className='nav-link'>Servicios</Link>
                   </div>
-                  <div className="navbar-brand mx-auto logo-container col-4 d-none d-md-block">
+                  <div className="navbar-brand mx-auto logo-container col-4 d-none d-lg-block">
                     <Image src={Logo} alt="Logo" className={styles.mylogo}  />
                   </div>
                   <div className="navbar-nav col-2 text-center">
