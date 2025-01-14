@@ -1,10 +1,18 @@
 import Menu from "@/components/menu/menu";
+import PlanesPrecios from "@/components/planesprecios/planesprecios";
 
 export default function Precios() {
   return (
-    <div className="container text-white ">
+    <div className="container">
+                      <Menu />
 
-      <h1>Precios</h1>
+                      <PlanesPrecios nombre="Andres" titulo="tit1" />
+                      <PlanesPrecios nombre="Andres" titulo="tit1" />
+                      <PlanesPrecios nombre="Andres" titulo="tit1" />
+                      <PlanesPrecios nombre="Andres" titulo="tit1" />
+                      <PlanesPrecios nombre="Andres" titulo="tit1" />
+
+      
     </div>
   );
 }

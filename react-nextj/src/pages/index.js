@@ -1,7 +1,12 @@
 import LandingPrincipal from "@/components/landingprincipal/landingprincipal";
+import Menu from "@/components/menu/menu";
 
 export default function Inicio() {
   return (
-      <LandingPrincipal />
+      <div>
+                <Menu />
+
+        <LandingPrincipal />
+      </div>
   );
 }

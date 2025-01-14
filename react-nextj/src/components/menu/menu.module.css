@@ -7,3 +7,14 @@
 }
 
 
+/* Default style: Show the div */
+.mylogo_hide {
+    display: block;
+}
+  
+/* Hide the div on screens smaller than 768px */
+@media (max-width: 768px) {
+    .mylogo_hide {
+        display: none;
+    }
+}

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from '/public/images/logoUnitas.png';
 import Image from 'next/image'
-import './menu.module.css'
+import styles from './menu.module.css'
  
   
 const Menu = ()=> {
@@ -12,13 +12,17 @@ const Menu = ()=> {
 
         <nav className="navbar navbar-expand-lg navbar-dark mybgcolor">
           <div className="container-fluid">
-              <div className="collapse">
-                <Image src={Logo} alt="Logo" className="mylogo" />
+              <div className="navbar-toggler border-0 mylogo">
+                <Link href="/">
+                  <Image src={Logo} alt="Logo" className={styles.mylogo} />                
+                </Link>
               </div>
-              <div className="navbar-toggler border-0">
-                <Image src={Logo} alt="Logo" className="mylogo" />
-              </div>              
-              
+              <div className="collapse">
+                <Link href="/">
+                  <Image src={Logo} alt="Logo" className={styles.mylogo} />
+                </Link>
+              </div>
+             
               <button 
                   className="navbar-toggler" 
                   type="button" 
@@ -43,7 +47,7 @@ const Menu = ()=> {
                     <Link href="/servicios" className='nav-link'>Servicios</Link>
                   </div>
                   <div className="navbar-brand mx-auto logo-container col-4 d-none d-lg-block">
-                    <Image src={Logo} alt="Logo" className="mylogo" />
+                    <Image src={Logo} alt="Logo" className={styles.mylogo}  />
                   </div>
                   <div className="navbar-nav col-2 text-center">
                     <Link href="/precios" className='nav-link'>Precios</Link>
