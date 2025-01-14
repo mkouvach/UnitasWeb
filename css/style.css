@@ -296,75 +296,80 @@ body#body_contacto {
 }
 
 /* ======================== */
-/* Estilos para la página de Sobre nosotros */
+/* Estilos para la página de Servicios */
 /* ======================== */
 
-/* Estilos generales */
-body {
+
+body#body_servicios {
+  font-family: Poppins, sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f2ed;
-  overflow: hidden;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #FFD590;
 }
 
-/* Contenedor principal */
-.portada {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #fffaf0 0%, #f7f2ed 100%);
-}
-
-/* Texto principal */
-.texto-portada h1 {
-  font-size: 6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: url('fondo-texto.jpg') center/cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: center;
-  margin: 0;
-  line-height: 1.2;
 }
 
-/* Logo */
-.logo-portada img {
-  width: 150px;
-  margin-top: 20px;
+h1 {
+  font-size: 5rem;
+  color: #FFD590;
+  margin-bottom: 20px;
 }
 
-/* Decoraciones */
-.decoracion {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.decoracion-izq {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  transform: rotate(45deg);
-  opacity: 0.5;
-  width: 250px;
+.service {
+  background: #201205;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s;
+  color: #FFD590;
 }
 
-.decoracion-der {
-  position: absolute;
-  bottom: 20%;
-  right: 10%;
-  transform: rotate(-45deg);
-  opacity: 0.5;
-  width: 250px;
+.service:hover {
+  transform: translateY(-5px);
 }
 
+.service-icon {
+  font-size: 3rem;
+  color: #FFD590;
+  margin-bottom: 15px;
+}
 
+.service-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  color: #FFD590;
+}
+
+button {
+  background-color: #E98010;
+  border: none;
+  color: #FFD590;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #FFD590;
+  color: #201205;
+}
 
