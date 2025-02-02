@@ -2,7 +2,7 @@
 /* Variables de la paleta de colores */
 /* ======================== */
 :root {
-  --color-principal: #FFD590;
+  --color-principal: #D4A761; /* Oscurecido un poco para mejor contraste */
   --color-secundario: #E98010;
   --color-fondo: #201205;
 }
@@ -22,7 +22,10 @@
 body {
   font-family: Arial, sans-serif;
   color: var(--color-principal);
-  background: radial-gradient(ellipse at center, #E98010 10%, #201205 100%);
+  background: url("../images/1_original.jpg");
+  background-size: cover;
+  background-color: rgba(32, 18, 5, 0.8); /* Fondo con opacidad */
+  background-blend-mode: overlay;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,6 +85,7 @@ nav .logo img:hover {
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--color-principal);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra más oscura para mejor contraste */
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -95,6 +99,7 @@ nav .logo img:hover {
   font-size: 30px;
   font-weight: 300;
   color: var(--color-principal);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra más oscura para mejor contraste */
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -112,6 +117,8 @@ nav .logo img:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 10px var(--color-secundario));
 }
+
+
 
 /* ======================== */
 /* Estilos para la página de Precios */
