@@ -24,7 +24,7 @@ body {
   color: var(--color-principal);
   background: url("../images/1_original.jpg");
   background-size: cover;
-  background-color: rgba(32, 18, 5, 0.8); /* Fondo con opacidad */
+  background-color: rgba(32, 18, 5, 0.8);
   background-blend-mode: overlay;
   height: 100vh;
   display: flex;
@@ -52,7 +52,7 @@ nav {
 nav a {
   color: var(--color-principal);
   text-decoration: none;
-  font-size: 25px;
+  font-size: 30px;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -63,13 +63,12 @@ nav a:hover {
 
 /* Logo de la barra de navegación */
 nav .logo {
-  max-width: 150px; /* Ancho máximo del logo */
-  max-height: 150px; /* Alto máximo del logo */
-  overflow: hidden; /* Evita que el contenido se salga */
+  max-width: 500px;
+  max-height: 500px;
 }
 
 nav .logo img {
-  object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+  object-fit: contain;
   transition: transform 0.3s, filter 0.3s;
 }
 
@@ -78,45 +77,60 @@ nav .logo img:hover {
   filter: drop-shadow(0 0 10px var(--color-secundario));
 }
 
+/* Contenedor del título con fondo */
+.title-container {
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  padding: 20px 40px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
 /* Título principal */
 .title {
-  font-family: 'Poppins',sans-serif;
-  font-size: 75px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 80px;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--color-principal);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra más oscura para mejor contraste */
+  color:var(--color-principal); /* Color dorado para mayor impacto */
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9); /* Sombra más intensa */
   transition: transform 0.3s, color 0.3s;
 }
 
 .title:hover {
   transform: scale(1.1);
+  color: #FFA500; /* Cambio de color al pasar el mouse */
 }
 
 /* Subtítulo */
 .subtitle {
-  font-family: 'Poppins',sans-serif;
-  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
   font-weight: 300;
-  color: var(--color-principal);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra más oscura para mejor contraste */
+  color: #FFFFFF;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s, color 0.3s;
 }
 
 .subtitle:hover {
   transform: scale(1.1);
+  color: #FFA500;
 }
 
-/* Animación para el logo central */
-.content img {
-  height: auto;
-  transition: transform 0.3s, filter 0.3s;
+/* Animación de aparición */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.content img:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 10px var(--color-secundario));
+.animate {
+  animation: fadeInUp 1s ease-out;
 }
+
 
 
 
@@ -129,7 +143,10 @@ body#body_precios {
   font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
-  background: radial-gradient(ellipse at center, #E98010 10%, #201205 100%);
+  background: url("../images/1_original.jpg");
+  background-size: cover;
+  background-color: rgba(32, 18, 5, 0.8);
+  background-blend-mode: overlay;
   color: #ECE4DB;
 }
 
@@ -147,7 +164,7 @@ body#body_precios {
 }
 
 .branding, .hashtag {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ECE4DB;
 }
@@ -163,8 +180,8 @@ body#body_precios {
 
 /* Contenedor de precios */
 .pricing-container {
-  text-align: center;
-  padding: 100px 20px 50px; /* Ajustar margen superior para espacio */
+   text-align: center; /* 100 20 50 */
+  padding: 20px 20px 35px; /* Ajustar margen superior para espacio */
 }
 
 header h1 {
@@ -174,7 +191,7 @@ header h1 {
 }
 
 header p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 50px;
   color: #ECE4DB;
 }
@@ -192,7 +209,8 @@ header p {
   border-radius: 10px;
   border: 2px solid black;
   padding: 30px; /* Aumentar espacio interno */
-  width: 300px; /* Aumentar ancho */
+  height: 450px;
+  width: 400px; /* Aumentar ancho */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left;
   color: #ECE4DB;
@@ -202,17 +220,17 @@ header p {
 .plan:hover {
   transform: rotate(3deg) scale(1.1); /* Rotación y escalado */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
-  background: linear-gradient(135deg, #2E2E2E, #ECE4DB); /* Cambio de fondo */
+  background: linear-gradient(135deg, #2E2E2E, #E98010); /* Cambio de fondo */
 }
 
 .plan h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 10px;
   color: #ECE4DB;
 }
 
 .plan p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
   color: #ECE4DB;
 }
@@ -243,6 +261,7 @@ button:hover {
 }
 
 .plan ul {
+  font-size: 1.2rem;
   list-style: none;
   padding: 0;
   margin-top: 20px;
