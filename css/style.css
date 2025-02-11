@@ -26,12 +26,13 @@ body {
   background-size: cover;
   background-color: rgba(32, 18, 5, 0.8);
   background-blend-mode: overlay;
-  height: 100vh;
+  min-height: 100vh; /* Permite que el contenido crezca si es necesario */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px; /* Añade un poco de espacio */
 }
 
 /* ======================== */
@@ -46,6 +47,8 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+  padding: 10px;
 }
 
 /* Links de la barra de navegación */
@@ -63,13 +66,14 @@ nav a:hover {
 
 /* Logo de la barra de navegación */
 nav .logo {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 300px; /* Reducimos el tamaño para mejorar responsividad */
 }
 
 nav .logo img {
   object-fit: contain;
   transition: transform 0.3s, filter 0.3s;
+  max-width: 100%; /* Se ajusta automáticamente al contenedor */
+  height: auto;
 }
 
 nav .logo img:hover {
@@ -83,6 +87,7 @@ nav .logo img:hover {
   padding: 20px 40px;
   border-radius: 10px;
   display: inline-block;
+  max-width: 90%; /* Para evitar que sea demasiado ancho en pantallas pequeñas */
 }
 
 /* Título principal */
@@ -90,8 +95,8 @@ nav .logo img:hover {
   font-family: 'Century Gothic';
   font-size: 5rem;
   font-weight: bold;
-  color:var(--color-principal); /* Color dorado para mayor impacto */
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9); /* Sombra más intensa */
+  color: var(--color-principal); 
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -131,6 +136,73 @@ nav .logo img:hover {
   animation: fadeInUp 1s ease-out;
 }
 
+nav.animate {
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+
+/* ======================== */
+/* Ajustes Responsivos */
+/* ======================== */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 4rem; /* Reduce tamaño en pantallas medianas */
+  }
+  
+  .subtitle {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem; /* Reduce el tamaño del título */
+  }
+  
+  .subtitle {
+    font-size: 1.5rem; /* Reduce el subtítulo */
+  }
+  
+  .title-container {
+    padding: 15px 30px; /* Ajusta el padding del contenedor */
+  }
+  
+  nav {
+    flex-direction: column; /* Apila los elementos en móviles */
+    text-align: center;
+  }
+
+  nav a {
+    font-size: 1.5rem; /* Reduce el tamaño del texto en la barra de navegación */
+  }
+
+  nav .logo {
+    max-width: 200px; /* Reduce el tamaño del logo */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
 
 
 
@@ -140,7 +212,7 @@ nav .logo img:hover {
 
 /* Estilo general */
 body#body_precios {
-  font-family:'Century Gothic';
+  font-family: 'Century Gothic', sans-serif;
   margin: 0;
   padding: 0;
   background: url("../images/1_original.jpg");
@@ -161,6 +233,7 @@ body#body_precios {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
 }
 
 .branding, .hashtag {
@@ -180,18 +253,18 @@ body#body_precios {
 
 /* Contenedor de precios */
 .pricing-container {
-   text-align: center; /* 100 20 50 */
-  padding: 20px 20px 35px; /* Ajustar margen superior para espacio */
+  text-align: center;
+  padding: 100px 20px 35px; /* Espacio superior para evitar que el header tape */
 }
 
 header h1 {
-  font-size: 7.5rem;
+  font-size: 7rem;
   margin-bottom: 10px;
   color: #ECE4DB;
 }
 
 header p {
-  font-size: 2rem;
+  font-size: 2.8rem;
   margin-bottom: 50px;
   color: #ECE4DB;
 }
@@ -202,59 +275,55 @@ header p {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: stretch; /* Mantiene los elementos alineados verticalmente */
 }
 
+/* Estilos de cada plan */
 .plan {
   background: var(--color-fondo);
   border-radius: 10px;
   border: 2px solid black;
-  padding: 30px; /* Aumentar espacio interno */
-  height: 28.1rem;
-  width: 25rem; /* Aumentar ancho */
+  padding: 30px;
+  width: min(25rem, 90vw); /* Se adapta al tamaño de pantalla */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left;
   color: #ECE4DB;
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Transiciones para la animación */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 .plan:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
-  background: linear-gradient(135deg, #2E2E2E, #E98010); /* Cambio de fondo */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #2E2E2E, #E98010);
 }
 
 .plan h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
   color: #ECE4DB;
 }
 
 .plan p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #ECE4DB; 
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
+  text-align: left;
   transition: background 0.3s ease, color 0.3s ease;
-
 }
 
 .plan h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #ECE4DB;
   margin-bottom: 20px;
 }
 
 /* Botón */
 button {
-  background: transparent !important; /* Forzar fondo transparente */
-  color: #ffffff !important; /* Texto blanco */
-  border: 2px solid #ffffff !important; /* Borde blanco */
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
   padding: 10px 20px;
   border-radius: 50px !important;
   cursor: pointer;
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
   font-weight: bold;
   text-align: center;
   transition: background 0.3s ease, color 0.3s ease;
@@ -262,32 +331,98 @@ button {
 
 /* Efecto hover */
 button:hover {
-  background: #ffffff !important; /* Fondo blanco */
-  color: #000000 !important; /* Texto negro */
+  background: #ffffff !important;
+  color: #000000 !important;
 }
 
+/* Lista de beneficios */
 .plan ul {
-  list-style: none; /* Quita los puntos de la lista */
+  list-style: none;
   padding: 0;
   margin-top: 20px;
 }
 
-
 .plan ul li {
-  font-size: 1.3rem;
-  margin: 10px 0; /* Espacio uniforme arriba y abajo */
+  font-size: 1.2rem;
+  margin: 10px 0;
   position: relative;
-  padding-left: 25px; /* Espacio para el ícono */
+  padding-left: 25px;
 }
 
 .plan ul li::before {
-  content: "✔"; /* Ícono de check */
+  content: "✔";
   position: absolute;
   left: 0;
-  color: #E98010; /* Naranja */
+  color: #E98010;
   font-weight: bold;
 }
 
+/* ======================== */
+/* Media Queries para dispositivos pequeños */
+/* ======================== */
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .branding, .hashtag {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+  }
+
+  header p {
+    font-size: 1.4rem;
+  }
+
+  .plan {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .plan h2 {
+    font-size: 1.6rem;
+  }
+
+  .plan h3 {
+    font-size: 1.6rem;
+  }
+
+  .plan ul li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 3rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  .plan {
+    width: 95%;
+  }
+
+  .plan h2 {
+    font-size: 1.4rem;
+  }
+
+  .plan h3 {
+    font-size: 1.4rem;
+  }
+
+  .plan ul li {
+    font-size: 0.9rem;
+  }
+}
 
 
 /* ======================== */
@@ -296,8 +431,6 @@ button:hover {
 
 body#body_contacto {
   font-family: Poppins, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: var(--color-fondo);
   color: var(--color-principal);
 }
@@ -344,75 +477,108 @@ body#body_contacto {
 
 
 body#body_servicios {
-  font-family: Poppins, sans-serif;
+  font-family: 'Century Gothic', sans-serif;
+  background: url("../images/1_original.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(32, 18, 5, 0.8); /* Se mantiene esta */
+  background-blend-mode: overlay;
+  color: #FFD590;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #FFD590;
 }
 
+/* Contenedor general */
 .container {
-  max-width: 1200px;
+  max-width: 1400px; /* Ampliamos el ancho máximo */
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
+/* Título */
 h1 {
-  font-size: 5rem;
+  font-size: 8rem;
   color: #FFD590;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
+/* Contenedor de servicios */
 .services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: flex;
+  justify-content: center; /* Asegura que los cuadros se expandan correctamente */
+  align-items: stretch;
+  gap: 30px; /* Reduce aún más el espacio entre los cuadros */
+  padding: 20px;
+  width: 100%; /* Usa más ancho de pantalla */
+  margin: 0 auto;
 }
 
 .service {
   background: #201205;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: transform 0.2s;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #FFD590;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 400px;
+  max-width: 450px; /* Aumenta el ancho de los cuadros */
 }
 
+/* Efecto hover */
 .service:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+
+
+/* Icono del servicio */
 .service-icon {
-  font-size: 3rem;
+  font-size: 4rem;
   color: #FFD590;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
+/* Título del servicio */
 .service-title {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
+/* Descripción */
 .service-description {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #FFD590;
+  max-width: 90%;
+  text-align: center;
 }
 
+/* Botón */
 button {
   background-color: #E98010;
   border: none;
   color: #FFD590;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 15px;
 }
 
+/* Efecto hover en el botón */
 button:hover {
   background-color: #FFD590;
   color: #201205;
 }
+
 
