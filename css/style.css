@@ -236,25 +236,10 @@ body#body_precios {
   z-index: 1000;
 }
 
-.branding, .hashtag {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #ECE4DB;
-}
-
-.branding {
-  text-align: left;
-  letter-spacing: 5px;
-}
-
-.hashtag {
-  text-align: right;
-}
-
 /* Contenedor de precios */
 .pricing-container {
   text-align: center;
-  padding: 100px 20px 35px; /* Espacio superior para evitar que el header tape */
+  padding: 100px 20px 35px;
 }
 
 header h1 {
@@ -269,50 +254,50 @@ header p {
   color: #ECE4DB;
 }
 
-/* Planes */
-.plans {
+/* Estilos del acordeón */
+.accordion {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: stretch; /* Mantiene los elementos alineados verticalmente */
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Estilos de cada plan */
-.plan {
-  background: var(--color-fondo);
-  border-radius: 10px;
+.accordion-item {
   border: 2px solid black;
-  padding: 30px;
-  width: min(25rem, 90vw); /* Se adapta al tamaño de pantalla */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-fondo);
+  transition: background 0.3s ease;
+}
+
+.accordion-header {
+  width: 100%;
+  background: #2E2E2E;
+  color: #ECE4DB;
+  font-size: 1.8rem;
+  padding: 15px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #E98010;
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px;
+  background: var(--color-fondo);
   text-align: left;
   color: #ECE4DB;
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-.plan:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(135deg, #2E2E2E, #E98010);
-}
-
-.plan h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: #ECE4DB;
-}
-
-.plan p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  text-align: left;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.plan h3 {
-  font-size: 1.8rem;
-  color: #ECE4DB;
-  margin-bottom: 20px;
+.accordion-item.active .accordion-content {
+  display: block;
 }
 
 /* Botón */
@@ -329,27 +314,26 @@ button {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Efecto hover */
 button:hover {
   background: #ffffff !important;
   color: #000000 !important;
 }
 
 /* Lista de beneficios */
-.plan ul {
+.accordion-content ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.plan ul li {
+.accordion-content ul li {
   font-size: 1.2rem;
   margin: 10px 0;
   position: relative;
   padding-left: 25px;
 }
 
-.plan ul li::before {
+.accordion-content ul li::before {
   content: "✔";
   position: absolute;
   left: 0;
@@ -367,11 +351,6 @@ button:hover {
     text-align: center;
   }
 
-  .branding, .hashtag {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
   header h1 {
     font-size: 3.5rem;
   }
@@ -380,21 +359,12 @@ button:hover {
     font-size: 1.4rem;
   }
 
-  .plan {
-    width: 90%;
-    padding: 20px;
+  .accordion {
+    max-width: 100%;
   }
 
-  .plan h2 {
+  .accordion-header {
     font-size: 1.6rem;
-  }
-
-  .plan h3 {
-    font-size: 1.6rem;
-  }
-
-  .plan ul li {
-    font-size: 1rem;
   }
 }
 
@@ -407,20 +377,8 @@ button:hover {
     font-size: 1.2rem;
   }
 
-  .plan {
-    width: 95%;
-  }
-
-  .plan h2 {
+  .accordion-header {
     font-size: 1.4rem;
-  }
-
-  .plan h3 {
-    font-size: 1.4rem;
-  }
-
-  .plan ul li {
-    font-size: 0.9rem;
   }
 }
 
@@ -540,6 +498,9 @@ h1 {
 
 /* Icono del servicio */
 .service-icon {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   font-size: 4rem;
   color: #FFD590;
   margin-bottom: 20px;
