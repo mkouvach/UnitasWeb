@@ -388,46 +388,30 @@ button:hover {
 /* ======================== */
 
 body#body_contacto {
-  font-family: Poppins, sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-principal);
+  font-family: 'Century Gothic', sans-serif
 }
 
-.contact-section {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: var(--color-principal);
-  border: 2px solid var(--color-secundario);
-  border-radius: 10px;
-  max-width: 800px; /* Ajusta según el ancho deseado */
-  /*margin: 50px 0; /* Quita el margen izquierdo que centra */
-  /*margin-left: 0; /* Asegúrate de que se alinee completamente a la izquierda */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: var(--color-fondo);
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+textarea {
+  height: 100px;
 }
 
 
-.contact-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centra el contenido dentro del contenedor */
-  gap: 20px;
-}
-
-.contact-info {
-  flex: 1;
-  max-width: 400px;
-  text-align: left; /* Alinea el texto dentro del bloque */
-}
-
-.calendly-container {
-  flex: 2;
-  padding: 20px;
-  background-color: var(--color-fondo);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
 
 /* ======================== */
 /* Estilos para la página de Servicios */
@@ -464,29 +448,33 @@ h1 {
 /* Contenedor de servicios */
 .services {
   display: flex;
-  justify-content: center; /* Asegura que los cuadros se expandan correctamente */
+  justify-content: center;
   align-items: stretch;
-  gap: 30px; /* Reduce aún más el espacio entre los cuadros */
-  padding: 20px;
-  width: 100%; /* Usa más ancho de pantalla */
+  gap: 50px; /* Aumenta el espacio entre las tarjetas */
+  padding: 40px;
+  width: 100%;
   margin: 0 auto;
 }
+
 
 .service {
   background: #201205;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 40px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #FFD590;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
-  min-height: 400px;
-  max-width: 450px; /* Aumenta el ancho de los cuadros */
+  flex: 1; /* Permite que las tarjetas crezcan */
+  min-width: 250px; /* Mínimo ancho */
+  max-width: 100%; /* Permite que se expandan */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
+
+
 
 /* Efecto hover */
 .service:hover {
@@ -497,14 +485,13 @@ h1 {
 
 
 /* Icono del servicio */
-.service-icon {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  font-size: 4rem;
-  color: #FFD590;
-  margin-bottom: 20px;
+.service-icon img {
+  width: 100px; /* Tamaño fijo o ajustable según necesites */
+  height: auto; /* Mantiene la proporción */
+  object-fit: contain; /* Asegura que la imagen no se recorte */
+  display: block; /* Evita espacios vacíos inesperados */
 }
+
 
 /* Título del servicio */
 .service-title {
@@ -516,30 +503,24 @@ h1 {
 
 /* Descripción */
 .service-description {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #FFD590;
   max-width: 90%;
   text-align: center;
 }
 
-/* Botón */
-button {
-  background-color: #E98010;
-  border: none;
-  color: #FFD590;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 15px;
+.service-icon {
+  margin-bottom: 40px; /* Aumenta el espacio debajo de la imagen */
 }
 
-/* Efecto hover en el botón */
-button:hover {
-  background-color: #FFD590;
-  color: #201205;
+.service-card {
+  padding: 20px; /* Asegura un relleno interno suficiente */
 }
+
+.service-card h3, .service-card p {
+  margin-top: 10px; /* Agrega más espacio entre el texto y la imagen */
+}
+
 
 
