@@ -1,0 +1,93 @@
+/* Estilo general */
+body#body_precios {
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  background: url("../images/1_original.jpg");
+  background-size: cover;
+  background-color: rgba(32, 18, 5, 0.8);
+  background-blend-mode: overlay;
+  color: #ECE4DB;
+}
+
+/* Barra de navegación */
+nav {
+  position: absolute;
+  top: 1.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+  padding: 10px;
+}
+
+/* Links de la barra de navegación */
+nav a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-size: 2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: var(--color-secundario);
+  transform: scale(1.1);
+}
+
+/* Logo de la barra de navegación */
+nav .logo {
+  max-width: 300px; /* Reducimos el tamaño para mejorar responsividad */
+}
+
+nav .logo img {
+  object-fit: contain;
+  transition: transform 0.3s, filter 0.3s;
+  max-width: 100%; /* Se ajusta automáticamente al contenedor */
+  height: auto;
+}
+
+nav .logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px var(--color-secundario));
+}
+
+.container-fluid {
+  margin-top: 300px; /* Ajusta este valor según la altura de la barra de navegación */
+}
+
+/* Contenedor del encabezado superior */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Contenedor de precios */
+.pricing-container {
+  text-align: center;
+  padding: 100px 20px 35px;
+}
+
+header h1 {
+  font-size: 7rem;
+  margin-bottom: 10px;
+  color: #ECE4DB;
+}
+
+header p {
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: #ECE4DB;
+}
+
+
+  
