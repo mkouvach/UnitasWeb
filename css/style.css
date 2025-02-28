@@ -215,8 +215,6 @@ nav.animate {
 body#body_precios {
   font-family: 'Century Gothic', sans-serif;
   font-weight: 500;
-  margin: 0;
-  padding: 0;
   background: url("../images/1_original.jpg");
   background-size: cover;
   background-color: rgba(32, 18, 5, 0.8);

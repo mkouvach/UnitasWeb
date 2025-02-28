@@ -1,9 +1,23 @@
+:root {
+  --color-principal: #D4A761; /* Oscurecido un poco para mejor contraste */
+  --color-secundario: #E98010;
+  --color-fondo: #201205;
+}
+
+/* ======================== */
+/* Reset y estilos generales */
+/* ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 /* Estilo general */
 body#body_precios {
   font-family: 'Century Gothic', sans-serif;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
+  font-weight: 500!important;
   background: url("../images/1_original.jpg");
   background-size: cover;
   background-color: rgba(32, 18, 5, 0.8);
@@ -57,6 +71,8 @@ nav .logo img:hover {
   margin-top: 300px; /* Ajusta este valor según la altura de la barra de navegación */
 }
 
+
+
 /* Contenedor del encabezado superior */
 .header-container {
   display: flex;
@@ -71,10 +87,12 @@ nav .logo img:hover {
   z-index: 1000;
 }
 
+
+
 /* Contenedor de precios */
 .pricing-container {
   text-align: center;
-  padding: 100px 20px 35px;
+  padding: 100px 20px 35px ;
 }
 
 header h1 {
@@ -88,6 +106,24 @@ header p {
   margin-bottom: 50px;
   color: #ECE4DB;
 }
+
+.pricing-container .card {
+  background: rgba(50, 30, 15, 0.8); /* Color oscuro semitransparente */
+  border: 2px solid #E98010; /* Color principal con transparencia */
+  color: #ECE4DB; /* Color claro para el texto */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pricing-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+
 
 
   
