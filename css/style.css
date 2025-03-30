@@ -461,109 +461,46 @@ button:hover {
 /* ======================== */
 
 
-body#body_servicios {
-  font-family: 'Century Gothic', sans-serif;
-  background: url("../images/1_original.jpg");
+body {
+  background: #1a1a1a url('images/Arco_unitas.png') no-repeat center top;
   background-size: cover;
-  background-position: center;
-  background-color: rgba(32, 18, 5, 0.8); /* Se mantiene esta */
-  background-blend-mode: overlay;
-  color: #FFD590;
-  margin: 0;
-  padding: 0;
-}
-
-/* Contenedor general */
-.container {
-  max-width: 1400px; /* Ampliamos el ancho máximo */
-  margin: 0 auto;
-  padding: 40px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
   text-align: center;
 }
-
-/* Título */
-h1 {
-  font-size: 8rem;
-  color: #FFD590;
-  margin-bottom: 40px;
+.servicios {
+  padding: 100px 20px 50px;
 }
-
-/* Contenedor de servicios */
-.services {
+.contenedor {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  gap: 50px; /* Aumenta el espacio entre las tarjetas */
-  padding: 40px;
-  width: 100%;
-  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: -50px; /* Ajuste para centrar mejor en el arco */
 }
-
-
-.service {
-  background: #201205;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #FFD590;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1; /* Permite que las tarjetas crezcan */
-  min-width: 250px; /* Mínimo ancho */
-  max-width: 100%; /* Permite que se expandan */
-  width: 100%; /* Ocupa todo el ancho disponible */
+.servicio {
+  background: #252525;
+  padding: 30px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-
-
-
-/* Efecto hover */
-.service:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-
-
-/* Icono del servicio */
-.service-icon img {
-  width: 100px; /* Tamaño fijo o ajustable según necesites */
-  height: auto; /* Mantiene la proporción */
-  object-fit: contain; /* Asegura que la imagen no se recorte */
-  display: block; /* Evita espacios vacíos inesperados */
-}
-
-
-/* Título del servicio */
-.service-title {
-  font-size: 1.5rem;
+.servicio img {
+  width: 100px;
+  height: 100px;
   margin-bottom: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
-
-/* Descripción */
-.service-description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #FFD590;
-  max-width: 90%;
-  text-align: center;
+.btn {
+  background: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
-
-.service-icon {
-  margin-bottom: 40px; /* Aumenta el espacio debajo de la imagen */
+.btn:hover {
+  background: #e07b00;
 }
-
-.service-card {
-  padding: 20px; /* Asegura un relleno interno suficiente */
-}
-
-.service-card h3, .service-card p {
-  margin-top: 10px; /* Agrega más espacio entre el texto y la imagen */
-}
-
-
 
