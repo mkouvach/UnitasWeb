@@ -1,0 +1,158 @@
+body#body_servicios {
+    background: 
+    url("../images/Arco_unitas.png") no-repeat center 150px, /* Arco */
+    linear-gradient(rgba(32, 18, 5, 0.8), rgba(32, 18, 5, 0.8)), /* Capa de color */
+    url("../images/1_original.jpg") no-repeat center top; /* Fondo original */
+  
+    background-size: contain, cover, cover; /* Arco mantiene su tamaño, fondo cubre */
+    color: white;
+    font-family:'Century Gothic',sans-serif;
+    text-align: center;
+  }
+  .servicios {
+    min-height: 100vh;
+    padding: 150px 20px 50px; /* Ajuste para evitar que el título se oculte */
+    position: relative;
+    z-index: 2;
+  }
+  
+  .servicios h1{
+    margin-top: 100px;
+    font-size: 7rem;
+  }
+  
+  .servicios p{
+    font-size: 1.5rem;
+  }
+  
+  .contenedor {
+    margin-top: 50px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 0; /* Eliminado el margen negativo */
+    position: relative;
+    z-index: 2;
+  }
+  
+  
+  .servicio {
+    background: #252525;
+    padding: 30px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .servicio p {
+    margin-bottom: 20px; /* Aumenta el espacio debajo del texto */
+  }
+  
+  
+  .servicio img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  .btn {
+    background: #ff8c00!important;
+    margin-top: 20px;
+    color: black!important;
+    border: 2px solid black!important;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .btn:hover {
+    background: #e07b00!important;
+  }
+  
+  /* -----------------------------------SEGUNDA PARTE---------------------------------------------------------- */
+  
+  .gestion-redes {
+    font-family:'Century Gothic',sans-serif;
+    width: 100%;
+    color: white;
+    padding: 60px 5%;
+    text-align: center;
+  }
+  
+  .titulo h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  
+  .contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+  }
+  
+  .texto {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+  }
+  
+  .texto p {
+    margin-bottom: 15px; /* Ajusta el valor según el espacio que necesites */
+  }
+  
+  
+  .imagen img {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+  }
+  
+  .boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Ajusta la separación */
+  }
+  
+  .boton button {
+    background-color:#E98010!important;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 20px; /* Reduce el tamaño del botón */
+    font-size: 1em; /* Reduce el tamaño del texto */
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  .imagen-boton {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen y el botón */
+  }
+
+  nav.animate {
+    padding: 20px 0;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  nav.animate a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav.animate a:hover {
+    color: #E98010;
+  }
+  
+  nav img {
+    height: 60px;
+  }
+  
+  

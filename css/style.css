@@ -2,7 +2,7 @@
 /* Variables de la paleta de colores */
 /* ======================== */
 :root {
-  --color-principal: #D4A761; /* Oscurecido un poco para mejor contraste */
+  --color-principal: #D4A761;
   --color-secundario: #E98010;
   --color-fondo: #201205;
 }
@@ -16,43 +16,40 @@
   box-sizing: border-box;
 }
 
-/* ======================== */
-/* Estilos generales del body */
-/* ======================== */
 body {
-  font-family:'Century Gothic',sans-serif;
+  font-family:'Century Gothic', sans-serif;
   font-weight: 500;
   color: var(--color-principal);
-  background: url("../images/1_original.jpg");
+  background: url("../images/1_original.jpg") no-repeat center center fixed;
   background-size: cover;
   background-color: rgba(32, 18, 5, 0.8);
   background-blend-mode: overlay;
-  min-height: 100vh; /* Permite que el contenido crezca si es necesario */
+
+  height: 100vh;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px; /* Añade un poco de espacio */
 }
-
 /* ======================== */
-/* Estilos para la portada */
+/* Barra de navegacion */
 /* ======================== */
-
-/* Barra de navegación */
 nav {
-  position: absolute;
-  top: 1.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 1000;
+  padding: 20px 10px; /* aumentamos padding para dar aire */
+  margin-top: 10px; /* este margen solo tiene efecto visual si usás un `background` */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
-  padding: 10px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(4px); /* opcional: efecto de difuminado */
+  border-radius: 0 0 10px 10px; /* redondeo inferior suave */
 }
 
-/* Links de la barra de navegación */
+
 nav a {
   color: var(--color-principal);
   text-decoration: none;
@@ -65,15 +62,15 @@ nav a:hover {
   transform: scale(1.1);
 }
 
-/* Logo de la barra de navegación */
 nav .logo {
-  max-width: 300px; /* Reducimos el tamaño para mejorar responsividad */
+  max-width: 250px;
 }
 
 nav .logo img {
+  margin-top: 20px;
   object-fit: contain;
   transition: transform 0.3s, filter 0.3s;
-  max-width: 100%; /* Se ajusta automáticamente al contenedor */
+  max-width: 100%;
   height: auto;
 }
 
@@ -82,20 +79,37 @@ nav .logo img:hover {
   filter: drop-shadow(0 0 10px var(--color-secundario));
 }
 
-/* Contenedor del título con fondo */
-.title-container {
-  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-  padding: 20px 40px;
-  border-radius: 10px;
-  display: inline-block;
-  max-width: 90%; /* Para evitar que sea demasiado ancho en pantallas pequeñas */
+/* ======================== */
+/* CONTENIDO PRINCIPAL */
+/* ======================== */
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 100px auto 0 auto; /* Deja margen top para que no tape el nav fijo */
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem; /* Espaciado entre secciones */
 }
 
-/* Título principal */
+/* Ajustamos el contenido para estar dentro del layout */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  height: calc(100vh - 120px); /* altura total menos la barra de navegación */
+}
+
+
+
 .title {
-  font-family: 'Century Gothic',sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 500;
-  font-size: 5rem;
   color: var(--color-principal); 
   text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
   transition: transform 0.3s, color 0.3s;
@@ -103,14 +117,12 @@ nav .logo img:hover {
 
 .title:hover {
   transform: scale(1.1);
-  color: #FFA500; /* Cambio de color al pasar el mouse */
+  color: #FFA500;
 }
 
-/* Subtítulo */
 .subtitle {
-  font-family: 'Century Gothic',sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 500;
-  font-size: 2rem;
   color: #FFFFFF;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s, color 0.3s;
@@ -121,7 +133,9 @@ nav .logo img:hover {
   color: #FFA500;
 }
 
-/* Animación de aparición */
+/* ======================== */
+/* ANIMACIONES */
+/* ======================== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -137,73 +151,45 @@ nav .logo img:hover {
   animation: fadeInUp 1s ease-out;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 nav.animate {
   animation: fadeInDown 1s ease-out;
 }
 
-@keyframes fadeInDown {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-
-
-
 /* ======================== */
-/* Ajustes Responsivos */
+/* MEDIA QUERIES */
 /* ======================== */
-@media (max-width: 1024px) {
-  .title {
-    font-size: 4rem; /* Reduce tamaño en pantallas medianas */
-  }
-  
-  .subtitle {
-    font-size: 1.75rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .title {
-    font-size: 3rem; /* Reduce el tamaño del título */
-  }
-  
-  .subtitle {
-    font-size: 1.5rem; /* Reduce el subtítulo */
-  }
-  
-  .title-container {
-    padding: 15px 30px; /* Ajusta el padding del contenedor */
-  }
-  
   nav {
-    flex-direction: column; /* Apila los elementos en móviles */
-    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 
   nav a {
-    font-size: 1.5rem; /* Reduce el tamaño del texto en la barra de navegación */
+    font-size: 1.5rem;
   }
 
-  nav .logo {
-    max-width: 200px; /* Reduce el tamaño del logo */
+  nav .logo img {
+    max-width: 180px;
+  }
+
+  .content {
+    margin-top: 220px;
   }
 }
 
-@media (max-width: 480px) {
-  .title {
-    font-size: 2.5rem;
-  }
 
-  .subtitle {
-    font-size: 1.25rem;
-  }
-}
 
 
 
@@ -236,156 +222,7 @@ body#body_precios {
   z-index: 1000;
 }
 
-/* Contenedor de precios */
-.pricing-container {
-  text-align: center;
-  padding: 100px 20px 35px;
-}
 
-header h1 {
-  font-size: 7rem;
-  margin-bottom: 10px;
-  color: #ECE4DB;
-}
-
-header p {
-  font-size: 2.8rem;
-  margin-bottom: 50px;
-  color: #ECE4DB;
-}
-
-/* Estilos del acordeón */
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.accordion-item {
-  border: 2px solid black;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--color-fondo);
-  transition: background 0.3s ease;
-}
-
-.accordion-header {
-  width: 100%;
-  background: #2E2E2E;
-  color: #ECE4DB;
-  font-size: 1.8rem;
-  font-weight: 500;
-  padding: 15px;
-  text-align: left;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  transition: background 0.3s ease;
-}
-
-.accordion-header:hover {
-  background: #E98010;
-}
-
-.accordion-content {
-  display: none;
-  padding: 15px;
-  background: var(--color-fondo);
-  text-align: left;
-  color: #ECE4DB;
-}
-
-.accordion-item.active .accordion-content {
-  display: block;
-}
-
-/* Botón */
-button {
-  background: transparent !important;
-  font-weight: 500;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  padding: 10px 20px;
-  border-radius: 50px !important;
-  cursor: pointer;
-  font-size: 1rem !important;
-  font-weight: bold;
-  text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-button:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
-}
-
-/* Lista de beneficios */
-.accordion-content ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.accordion-content ul li {
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin: 10px 0;
-  position: relative;
-  padding-left: 25px;
-}
-
-.accordion-content ul li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #E98010;
-  font-weight: bold;
-}
-
-
-
-/* ======================== */
-/* Media Queries para dispositivos pequeños */
-/* ======================== */
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header h1 {
-    font-size: 3.5rem;
-  }
-
-  header p {
-    font-size: 1.4rem;
-  }
-
-  .accordion {
-    max-width: 100%;
-  }
-
-  .accordion-header {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 3rem;
-  }
-
-  header p {
-    font-size: 1.2rem;
-  }
-
-  .accordion-header {
-    font-size: 1.4rem;
-  }
-}
 
 
 
@@ -460,24 +297,44 @@ button:hover {
 /* Estilos para la página de Servicios */
 /* ======================== */
 
+/* ---------------------------PRIMERA PARTE------------------------------------------------------ */
 
-body {
-  background: #1a1a1a url('images/Arco_unitas.png') no-repeat center top;
-  background-size: cover;
+
+body#body_servicios {
+  background-color: #000;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family:'Century Gothic',sans-serif;
   text-align: center;
 }
 .servicios {
-  padding: 100px 20px 50px;
+  min-height: 100vh;
+  padding: 150px 20px 50px; /* Ajuste para evitar que el título se oculte */
+  position: relative;
+  z-index: 2;
 }
+
+.servicios h1{
+  margin-top: 100px;
+  font-size: 7rem;
+}
+
+.servicios p{
+  font-size: 1.5rem;
+}
+
 .contenedor {
+  margin-top: 50px;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-  margin-top: -50px; /* Ajuste para centrar mejor en el arco */
+  margin-top: 0; /* Eliminado el margen negativo */
+  position: relative;
+  z-index: 2;
 }
+
+
 .servicio {
   background: #252525;
   padding: 30px;
@@ -486,21 +343,111 @@ body {
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+.servicio p {
+  margin-bottom: 20px; /* Aumenta el espacio debajo del texto */
+}
+
+
 .servicio img {
   width: 100px;
   height: 100px;
   margin-bottom: 15px;
 }
 .btn {
-  background: #ff8c00;
-  color: white;
-  border: none;
+  background: #ff8c00!important;
+  margin-top: 20px;
+  color: black!important;
+  border: 2px solid black!important;
   padding: 12px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 .btn:hover {
-  background: #e07b00;
+  background: #e07b00!important;
 }
+
+
+
+/* -----------------------------------TERCERA PARTE---------------------------------------------------------- */
+
+.servicio-detalle {
+  font-family: 'Century Gothic', sans-serif;
+  width: 100%;
+  color: white;
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.servicio-detalle .bloque {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  text-align: left;
+}
+
+.servicio-detalle .titulo {
+  margin-bottom: 30px;
+}
+
+.servicio-detalle .titulo h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.servicio-detalle .contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.servicio-detalle .texto {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+}
+
+.servicio-detalle .texto p {
+  margin-bottom: 15px;
+}
+
+.servicio-detalle .imagen img {
+  width: 220px;
+  max-width: 100%;
+}
+
+.servicio-detalle .imagen-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicio-detalle .boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 220px;
+}
+
+.servicio-detalle .boton button {
+  background-color: #E98010;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+.servicio-detalle .boton button:hover {
+  background-color: #cc6f0d;
+}
+
 
