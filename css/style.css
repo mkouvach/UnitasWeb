@@ -297,8 +297,6 @@ button:hover {
 /* Estilos para la página de Servicios */
 /* ======================== */
 
-/* ---------------------------PRIMERA PARTE------------------------------------------------------ */
-
 
 body#body_servicios {
   background-color: #000;
@@ -368,9 +366,8 @@ body#body_servicios {
   background: #e07b00!important;
 }
 
+/* -------------------------------------------------------- */
 
-
-/* -----------------------------------TERCERA PARTE---------------------------------------------------------- */
 
 .servicio-detalle {
   font-family: 'Century Gothic', sans-serif;
@@ -395,22 +392,28 @@ body#body_servicios {
   font-weight: bold;
   margin-bottom: 0;
   text-align: left;
+  color: white;
 }
+
 
 .servicio-detalle .contenido {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
+
 
 .servicio-detalle .texto {
   flex: 1;
   text-align: left;
   max-width: 600px;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
+
 
 .servicio-detalle .texto p {
   margin-bottom: 15px;
@@ -449,5 +452,16 @@ body#body_servicios {
 .servicio-detalle .boton button:hover {
   background-color: #cc6f0d;
 }
+
+.servicio-detalle strong {
+  font-weight: bold;
+  color: white;
+}
+
+.servicio-detalle em {
+  font-style: italic;
+  color: #ccc;
+}
+
 
 
