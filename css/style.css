@@ -316,6 +316,18 @@ body#body_servicios {
   font-size: 7rem;
 }
 
+.servicio h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  min-height: 3.6em; /* Fuerza un alto mínimo aunque el texto sea corto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
 .servicios p{
   font-size: 1.5rem;
 }
@@ -352,18 +364,22 @@ body#body_servicios {
   height: 100px;
   margin-bottom: 15px;
 }
+
 .btn {
-  background: #ff8c00!important;
-  margin-top: 20px;
-  color: black!important;
-  border: 2px solid black!important;
-  padding: 12px;
-  border-radius: 5px;
+  background-color: #E98010;
+  color: black;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.3s ease; /* <<< Esto hace suave la transición */
 }
 .btn:hover {
-  background: #e07b00!important;
+  background: #E98010;
+  transform: scale(1.2); /* <<< El botón se agranda un poquito */
 }
 
 /* -------------------------------------------------------- */
@@ -381,7 +397,13 @@ body#body_servicios {
   max-width: 1200px;
   margin: 0 auto 60px;
   text-align: left;
+  
+  scroll-margin-top: 150px; /* Ajustá este valor si tu header fijo mide otro tamaño */
+  min-height: 100vh; /* Hace que cada bloque ocupe al menos toda la altura de la ventana */
+  padding-top: 50px; /* Espaciado interno arriba */
+  padding-bottom: 50px; /* Espaciado interno abajo */
 }
+
 
 .servicio-detalle .titulo {
   margin-bottom: 30px;
@@ -438,19 +460,22 @@ body#body_servicios {
 }
 
 .servicio-detalle .boton button {
+  font-family:'Century Gothic',sans-serif;
   background-color: #E98010;
-  color: white;
+  color: black;
   border: none;
-  padding: 10px 0;
+  padding: 15px 20px;
   font-size: 1rem;
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
   width: 100%;
+  transition: all 0.3s ease; /* <<< Esto hace suave la transición */
 }
 
 .servicio-detalle .boton button:hover {
-  background-color: #cc6f0d;
+  background-color: #E98010;
+  transform: scale(1.2); /* <<< El botón se agranda un poquito */
 }
 
 .servicio-detalle strong {
@@ -461,6 +486,34 @@ body#body_servicios {
 .servicio-detalle em {
   font-style: italic;
   color: #ccc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ======================== */
+/* Ajustes responsivos */
+/* ======================== */
+
+@media (max-width: 768px) {
+  .servicio-detalle .contenido {
+    gap: 30px;
+  }
+
+  .servicio-detalle .texto {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .servicio-detalle .imagen-boton {
+    width: 100%;
+  }
+
+  .servicio-detalle .boton {
+    margin-top: 20px;
+  }
 }
 
 
