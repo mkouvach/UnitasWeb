@@ -16,20 +16,19 @@
   box-sizing: border-box;
 }
 
-body {
+body#body_index {
   font-family:'Century Gothic', sans-serif;
-  font-weight: 500;
   color: var(--color-principal);
   background: url("../images/1_original.jpg") no-repeat center center fixed;
   background-size: cover;
   background-color: rgba(32, 18, 5, 0.8);
   background-blend-mode: overlay;
-
   height: 100vh;
-  margin: 0;
   display: flex;
   flex-direction: column;
 }
+
+
 /* ======================== */
 /* Barra de navegacion */
 /* ======================== */
@@ -40,7 +39,6 @@ nav {
   width: 100%;
   z-index: 1000;
   padding: 20px 10px; /* aumentamos padding para dar aire */
-  margin-top: 10px; /* este margen solo tiene efecto visual si usás un `background` */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -51,10 +49,15 @@ nav {
 
 
 nav a {
+ font-family:'Century Gothic', sans-serif;
   color: var(--color-principal);
   text-decoration: none;
   font-size: 2rem;
   transition: color 0.3s, transform 0.3s;
+}
+
+nav a.activo {
+  border-bottom: 2px solid #E98010; 
 }
 
 nav a:hover {
@@ -78,6 +81,50 @@ nav .logo img:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 10px var(--color-secundario));
 }
+
+/* ======================== */
+/* Ajustes responsivos */
+/* ======================== */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  nav .logo {
+    max-width: 200px;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  nav .logo {
+    max-width: 180px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+  }
+}
+
+
+
 
 /* ======================== */
 /* CONTENIDO PRINCIPAL */
@@ -136,6 +183,7 @@ nav .logo img:hover {
 /* ======================== */
 /* ANIMACIONES */
 /* ======================== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -166,61 +214,7 @@ nav.animate {
   animation: fadeInDown 1s ease-out;
 }
 
-/* ======================== */
-/* MEDIA QUERIES */
-/* ======================== */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-  }
 
-  nav a {
-    font-size: 1.5rem;
-  }
-
-  nav .logo img {
-    max-width: 180px;
-  }
-
-  .content {
-    margin-top: 220px;
-  }
-}
-
-
-
-
-
-/* ======================== */
-/* Estilos para la página de Precios */
-/* ======================== */
-
-/* Estilo general */
-body#body_precios {
-  font-family: 'Century Gothic', sans-serif;
-  font-weight: 500;
-  background: url("../images/1_original.jpg");
-  background-size: cover;
-  background-color: rgba(32, 18, 5, 0.8);
-  background-blend-mode: overlay;
-  color: #ECE4DB;
-}
-
-/* Contenedor del encabezado superior */
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
 
 
 
@@ -230,65 +224,122 @@ body#body_precios {
 /* Estilos para la página de Contacto */
 /* ======================== */
 
-body {
-  font-family: 'Century Gothic', sans-serif;
+
+#contacto {
+  padding-top: 160px;
+  font-family:'Century Gothic', sans-serif;
+  color: var(--color-principal);
+  background: url("../images/1_original.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: rgba(32, 18, 5, 0.8);
+  background-blend-mode: overlay;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-form {
-  width: 60vw; /* Ahora ocupará más de la mitad de la pantalla */
-  max-width: 700px; /* Evita que en pantallas grandes sea excesivo */
-  position: absolute;
-  left: 50px; /* Mantiene su alineación */
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 50px; /* Más espacio dentro del formulario */
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-between;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 20px;
-  font-size: 24px; /* Más grande para mejor lectura */
-  color: #e3b062;
+.info-contacto {
+  flex: 1 1 300px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 18px; /* Más espacio dentro del campo */
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 20px; /* Texto más grande */
+.info-contacto h2 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  background: transparent;
-  color: #e3b062;
-  border: 2px solid #e3b062;
-  border-radius: 10px;
-  font-size: 22px;
-  cursor: pointer;
+.info-contacto ul {
+  list-style: none;
+  padding: 0;
 }
 
-button:hover {
-  background: #e3b062;
-  color: #000;
+.info-contacto li {
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
+.info-contacto i {
+  color: #E98010;
+  margin-right: 10px;
+}
 
+.form-contacto {
+  flex: 1 1 500px;
+}
 
-#errores {
-  background: #ffdddd;
-  color: red;
-  padding: 10px;
-  border-radius: 5px;
+.form-contacto h2 {
+  font-size: 3rem;
   margin-bottom: 10px;
 }
+
+.form-contacto p {
+  font-size: 1rem;
+  font-weight: 550;
+  margin-bottom: 30px;
+  color:  black;
+}
+
+.form-contacto form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-contacto label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+  border: none;
+  border-bottom: 2px solid #E98010;
+  background: transparent;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-contacto button {
+  background-color: #E98010;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.form-contacto button:hover {
+  background-color: #E98010;
+}
+
+#form-contacto {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+}
+
+#form-contacto.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error {
+  border: 2px solid #e74c3c;
+  box-shadow: 0 0 5px #e74c3c;
+}
+
 
 
 
@@ -299,21 +350,31 @@ button:hover {
 
 
 body#body_servicios {
-  background-color: #000;
   color: white;
   font-family:'Century Gothic',sans-serif;
   text-align: center;
+
+  background-image: url('../images/Servicios_Fondo.png'); /* Ajustá la ruta según tu estructura */
+  background-size: cover;
+  background-position: top center 100px;
+  background-repeat: no-repeat;
+  min-height: 120vh;
+  
 }
+
+
 .servicios {
   min-height: 100vh;
-  padding: 150px 20px 50px; /* Ajuste para evitar que el título se oculte */
+  padding: 80px 20px 50px;
   position: relative;
   z-index: 2;
+ 
 }
+
 
 .servicios h1{
   margin-top: 100px;
-  font-size: 7rem;
+  font-size: clamp(2.5rem, 5vw, 7rem);
 }
 
 .servicio h3 {
@@ -334,6 +395,7 @@ body#body_servicios {
 
 .contenedor {
   margin-top: 50px;
+  margin-bottom: 10rem;
   padding-top: 100px;
   display: flex;
   justify-content: center;
@@ -354,14 +416,20 @@ body#body_servicios {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.servicio:hover {
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+
 .servicio p {
   margin-bottom: 20px; /* Aumenta el espacio debajo del texto */
 }
 
 
 .servicio img {
-  width: 100px;
-  height: 100px;
+  width: 9.37rem;
+  height: 9.37rem;
   margin-bottom: 15px;
 }
 
@@ -393,16 +461,20 @@ body#body_servicios {
   text-align: center;
 }
 
+
 .servicio-detalle .bloque {
-  max-width: 1200px;
-  margin: 0 auto 60px;
+  max-width: none; /* <<< Nuevo */
+  margin: 0;        /* <<< Nuevo */
+  padding-left: 5%;
+  padding-right: 5%;
+
+  scroll-margin-top: 150px;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
   text-align: left;
-  
-  scroll-margin-top: 150px; /* Ajustá este valor si tu header fijo mide otro tamaño */
-  min-height: 100vh; /* Hace que cada bloque ocupe al menos toda la altura de la ventana */
-  padding-top: 50px; /* Espaciado interno arriba */
-  padding-bottom: 50px; /* Espaciado interno abajo */
 }
+
 
 
 .servicio-detalle .titulo {
@@ -422,18 +494,15 @@ body#body_servicios {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  gap: 60px;
   flex-wrap: wrap;
+  gap: 60px; /* Ajusta si querés más o menos separación */
 }
-
 
 .servicio-detalle .texto {
   flex: 1;
+  max-width: 50%;
   text-align: left;
-  max-width: 600px;
-  font-size: 1.3rem;
-  line-height: 1.6;
+  padding-right: 30px;
 }
 
 
@@ -442,30 +511,38 @@ body#body_servicios {
 }
 
 .servicio-detalle .imagen img {
-  width: 220px;
+  width: 30rem;
+  height: auto;
   max-width: 100%;
+  display: block;
 }
 
+
 .servicio-detalle .imagen-boton {
+  flex: 1;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 30px;
+  gap: 20px;
 }
 
 .servicio-detalle .boton {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  width: 220px;
+  width: 80%;
 }
 
 .servicio-detalle .boton button {
   font-family:'Century Gothic',sans-serif;
   background-color: #E98010;
-  color: black;
+  color:white;
   border: none;
   padding: 15px 20px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
@@ -493,26 +570,156 @@ html {
 }
 
 
+.punto{
+  color: #E98010 ;
+}
+
+/* Animación de entrada para bloques */
+.bloque {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.bloque.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Títulos interactivos */
+.titulo h2.resaltar {
+  color: #E98010;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Efecto pulsante en botones */
+.pulse {
+  animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(233, 128, 16, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 10px rgba(233, 128, 16, 0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
 /* ======================== */
 /* Ajustes responsivos */
 /* ======================== */
 
-@media (max-width: 768px) {
-  .servicio-detalle .contenido {
-    gap: 30px;
+@media (max-width: 1024px) {
+  .servicios h1 {
+    font-size: 5rem;
   }
 
-  .servicio-detalle .texto {
-    max-width: 100%;
+  .servicios p {
+    font-size: 1.3rem;
+  }
+
+  .servicio h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicios {
+    padding: 100px 15px 40px;
+  }
+
+  .servicios h1 {
+    font-size: 3.5rem;
+  }
+
+  .servicios p {
     font-size: 1.1rem;
   }
 
-  .servicio-detalle .imagen-boton {
-    width: 100%;
+  .contenedor {
+    gap: 20px;
   }
 
-  .servicio-detalle .boton {
-    margin-top: 20px;
+  .servicio {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .servicio img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btn {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+
+  .servicio-detalle .contenido {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .servicio-detalle .imagen img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .servicio-detalle .boton button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .servicios h1 {
+    font-size: 2.5rem;
+  }
+
+  .servicios p {
+    font-size: 1rem;
+  }
+
+  .servicio h3 {
+    font-size: 1rem;
+    min-height: auto;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+
+  .servicio-detalle {
+    padding: 40px 10px;
+  }
+
+  .servicio-detalle .titulo h2 {
+    font-size: 1.5rem;
+  }
+
+  .servicio-detalle .texto p {
+    font-size: 0.95rem;
   }
 }
 

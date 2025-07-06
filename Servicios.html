@@ -11,7 +11,7 @@
 
     <nav class="animate">
         <a href="Recursos.html">Recursos</a>
-        <a href="Servicios.html">Servicios</a>
+        <a href="Servicios.html" class="activo">Servicios</a>
         <div class="logo">
             <a href="index.html">
                 <img src="images/LOGO1.png" alt="Logo">
@@ -23,11 +23,12 @@
 
 
     <section class="servicios">
+
         <h1>Servicios</h1>
         <p>Creamos juntos, somos un equipo</p>
         <div class="contenedor">
             <div class="servicio">
-                <img src="images/Gestión de redes.png" alt="Gestión de redes sociales">
+                <img src="images/Gestión de redes.png" alt="Gestión de redes sociales" class="img-gestionredes">
                 <h3>Gestión de redes sociales</h3>
                 <a href="#detalle-redes" class="btn">Más información</a>
             </div>
@@ -47,13 +48,13 @@
                 <a href="#detalle-asesorias" class="btn">Más información</a>
             </div>
         </div>
-    </section>
+    
 
     <section class="servicio-detalle">
 
         <div class="bloque" id="detalle-redes">
           <div class="titulo">
-            <h2>Gestión de redes sociales.</h2>
+            <h2>Gestión de redes sociales<span class="punto">.</span></h2>
           </div>
           <div class="contenido">
             <div class="texto">
@@ -84,7 +85,7 @@
       
         <div class="bloque" id="detalle-Branding">
           <div class="titulo">
-            <h2>Branding.</h2>
+            <h2>Branding<span class="punto">.</span></h2>
           </div>
           <div class="contenido">
             <div class="texto">
@@ -111,7 +112,7 @@
 
         <div class="bloque" id="detalle-estrategia">
           <div class="titulo">
-            <h2>Estrategia de contenidos.</h2>
+            <h2>Estrategia de contenidos<span class="punto">.</span></h2>
           </div>
           <div class="contenido">
             <div class="texto">
@@ -138,7 +139,7 @@
 
         <div class="bloque" id="detalle-asesorias">
           <div class="titulo">
-            <h2>Asesorías de Marketing Digital.</h2>
+            <h2>Asesorías de Marketing Digital <span class="punto">.</span></h2>
           </div>
           <div class="contenido">
             <div class="texto">
@@ -173,9 +174,37 @@
 
       
       </section>
+      </section>
+
+      <script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+
+<script>
+  const links = document.querySelectorAll('nav a');
+  const currentPage = window.location.pathname.split("/").pop().split("#")[0];
+
+  links.forEach(link => {
+    const href = link.getAttribute("href").split("#")[0];
+    if (href === currentPage) {
+      link.classList.add("activo");
+    } else {
+      link.classList.remove("activo"); // elimina clase en los demás
+    }
+  });
+</script>
+
+<script src="Servicios.js"></script>
+
 
      
-    
-
+  
 </body>
 </html>

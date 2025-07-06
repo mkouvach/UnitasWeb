@@ -9,7 +9,7 @@
 <body>
     <nav class="animate">
         <a href="Recursos.html">Recursos</a>
-        <a href="Servicios.html">Servicios</a>
+        <a href="Servicios.html" class="activo">Servicios</a>
         <div class="logo">
             <a href="index.html">
                 <img src="images/LOGO1.png" alt="Logo">
@@ -18,34 +18,58 @@
         <a href="Testimonios.html">Testimonios</a>
         <a href="Contact.html">Contacto</a>
     </nav>
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto</title>
-</head>
-<body>
 
-    <form action="#" method="POST">
+    <section id="contacto">
+  <div class="contacto-container">
+    <div class="info-contacto">
+      <h2>Información</h2>
+      <ul>
+        <li><i class="fa-solid fa-location-dot"></i> Buenos Aires, Argentina</li>
+        <li><i class="fa-brands fa-whatsapp"></i> +54 11 5798 0143</li>
+        <li><i class="fa-brands fa-instagram"></i> @unitasmanagment</li>
+        <li><i class="fa-regular fa-envelope"></i> unitasmanagment@gmail.com</li>
+      </ul>
+    </div>
+
+    <div class="form-contacto">
+      <h2>No te quedes con la duda, consultanos</h2>
+      <p>Si te quedaste con alguna consulta te invitamos a que nos cuentes más detalles de tu negocio o proyecto, te asesoraremos para que obtengas los mejores resultados.</p>
+      
+      <form>
         <label for="nombre">Nombre *</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+        <input type="text" id="nombre" required>
+        
+        <label for="email">Email *</label>
+        <input type="email" id="email" required>
+        
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono">
+        
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" rows="4"></textarea>
+        
+        <button type="submit">ENVIAR</button>
+      </form>
+    </div>
+  </div>
+</section>
+<script src="Contact.js"></script>
 
-        <label for="apellido">Apellidos *</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Apellidos" required>
+<script>
+const links = document.querySelectorAll('nav a');
+  const currentPage = window.location.pathname.split("/").pop().split("#")[0];
 
-        <label for="correo">Correo electrónico *</label>
-        <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+  links.forEach(link => {
+    const href = link.getAttribute("href").split("#")[0];
+    if (href === currentPage) {
+      link.classList.add("activo");
+    } else {
+      link.classList.remove("activo"); // elimina clase en los demás
+    }
+  });
 
 
-        <label for="mensaje">Comentario o mensaje *</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
-
-        <button type="submit">Enviar</button>
-    </form>
-
-    <script src="Contact.js"></script>
-
+</script>
 </body>
 </html>
 
